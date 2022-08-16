@@ -30,7 +30,7 @@ export class FormpagePage implements OnInit {
 
   ngOnInit() {}
   onClickSubmit() {
-    let obj = {
+    const obj = {
       name: this.obj.name,
       fathersName: this.obj.fathersName,
       phone: this.obj.phone,
@@ -61,6 +61,5 @@ export class FormpagePage implements OnInit {
 
   getSpecilization(event) {
     this.obj.specilization = event.detail.value;
-    console.log(this.obj.specilization);
   }
 }
