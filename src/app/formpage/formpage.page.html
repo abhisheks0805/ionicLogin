@@ -1,0 +1,87 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> Form </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Blank</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Form For Students</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating"
+          ><ion-icon slot="start" name="person-add-outline"></ion-icon>Full
+          Name</ion-label
+        >
+        <ion-input [(ngModel)]="obj.name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating"
+          ><ion-icon slot="start" name="person-add-outline"></ion-icon>Father's
+          Name</ion-label
+        >
+        <ion-input [(ngModel)]="obj.fathersName"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating"
+          ><ion-icon name="call-outline"></ion-icon>Phone No.</ion-label
+        >
+        <ion-input [(ngModel)]="obj.phone" type="number"></ion-input>
+      </ion-item>
+
+      <ion-list>
+        <ion-radio-group [(ngModel)]="obj.domain">
+          <ion-list-header>
+            <ion-label>Domain</ion-label>
+          </ion-list-header>
+
+          <ion-item>
+            <ion-label>Computer Science</ion-label>
+            <ion-radio slot="start" value="Computer Science"></ion-radio>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Electrical</ion-label>
+            <ion-radio slot="start" value="Electrical"></ion-radio>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Mechanical</ion-label>
+            <ion-radio slot="start" value="Mechanical"></ion-radio>
+          </ion-item>
+        </ion-radio-group>
+      </ion-list>
+      <ion-list>
+        <ion-item>
+          <ion-select
+            (ionChange)="getSpecilization($event)"
+            placeholder="Specilization"
+          >
+            <ion-select-option *ngFor="let item of category" value="{{item}}"
+              >{{item}}</ion-select-option
+            >
+          </ion-select>
+        </ion-item>
+      </ion-list>
+
+      <ion-item>
+        <ion-checkbox slot="start" [(ngModel)]="obj.terms"></ion-checkbox>
+        <ion-label>I Accept the terms and conditions</ion-label>
+      </ion-item>
+      <ion-item *ngIf="obj.terms===false">
+        <ion-label>Please accept the T&C to continue</ion-label>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-button expand="block" (click)="onClickSubmit()">Submit</ion-button>
+</ion-content>

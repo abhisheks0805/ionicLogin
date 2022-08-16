@@ -11,6 +11,14 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'formpage',
+    loadChildren: () => import('./formpage/formpage.module').then( m => m.FormpagePageModule)
+  },
+  {
+    path: 'previewpage',
+    loadChildren: () => import('./previewpage/previewpage.module').then( m => m.PreviewpagePageModule)
+  },
 ];
 
 @NgModule({
